@@ -25,10 +25,4 @@
       <CopyToPublishDirectory>Never</CopyToPublishDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <None Remove="Data\Migrations\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\Migrations\" />
-  </ItemGroup>
 </Project>
