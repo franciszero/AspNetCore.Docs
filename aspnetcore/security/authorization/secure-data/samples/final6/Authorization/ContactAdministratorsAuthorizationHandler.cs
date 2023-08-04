@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Authorization.Infrastructure;
 
 namespace ContactManager.Authorization
 {
+    // Create a ContactAdministratorsAuthorizationHandler class in the Authorization folder.
+    // The ContactAdministratorsAuthorizationHandler verifies the user acting on the resource is an administrator.
+    // Administrator can do all operations.
     public class ContactAdministratorsAuthorizationHandler
                     : AuthorizationHandler<OperationAuthorizationRequirement, Contact>
     {

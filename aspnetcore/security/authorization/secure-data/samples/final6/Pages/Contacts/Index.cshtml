@@ -1,87 +1,104 @@
 @page
-@model ContactManager.Pages.Contacts.IndexModel
-
+@model IndexModel
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Home - BDAT 1001 Project";
 }
 
-<h1>Index</h1>
+<style>
+    /* Universal Styles */
+    body {
+        background: #333;
+        color: #f3f3f3;
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Contact[0].Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Contact[0].Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Contact[0].City)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Contact[0].State)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Contact[0].Zip)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Contact[0].Email)
-            </th>
-             <th>
-                @Html.DisplayNameFor(model => model.Contact[0].Status)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Contact) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.City)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Zip)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-                           <td>
-                    @Html.DisplayFor(modelItem => item.Status)
-                </td>
-                <td>
-                    @if ((await AuthorizationService.AuthorizeAsync(
-                     User, item,
-                     ContactOperations.Update)).Succeeded)
-                    {
-                        <a asp-page="./Edit" asp-route-id="@item.ContactId">Edit</a>
-                        <text> | </text>
-                    }
+    h1, h2 {
+        color: #FFC0CB;
+    }
 
-                    <a asp-page="./Details" asp-route-id="@item.ContactId">Details</a>
+    /* Center Content */
+    .center-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 80vh;
+    }
 
-                    @if ((await AuthorizationService.AuthorizeAsync(
-                     User, item,
-                     ContactOperations.Delete)).Succeeded)
-                    {
-                        <text> | </text>
-                        <a asp-page="./Delete" asp-route-id="@item.ContactId">Delete</a>
-                    }
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+    /* Header */
+    .header {
+        background: #01796F;
+        width: 100%;
+        padding: 1.5rem 0;
+        color: white;
+        text-align: center;
+        font-size: 2rem;
+    }
 
+    /* Team */
+    .team {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 2rem;
+    }
+
+    /* Team Members */
+    .team .member {
+        max-width: 300px;
+        margin: 1rem;
+        background: #444;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .team .member img {
+        width: 100%;
+        height: auto;
+        border-radius: 50%;
+    }
+
+    .team .member h2 {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+    }
+
+    .team .member p {
+        color: #FFC0CB;
+        margin-top: 0.5rem;
+    }
+</style>
+
+<div class="header">BDAT 1001 Project</div>
+
+<div class="center-content">
+    <img src="/image/Geg.png" width="100px">
+
+    <h1>Welcome</h1>
+    <p>
+        Final Project BDAT 1001: <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.
+    </p>
+    <p>User Data Protected by Authorization</p>
+</div>
+
+<div class="team">
+    <div class="member">
+        <img src="/image/Member1.jpg" alt="Fangji Chen">
+        <h2>Fangji Chen</h2>
+        <p>Web Developer</p>
+    </div>
+    
+    <!-- And so on for the other team members -->
+
+    <div class="member">
+        <img src="/image/Member4.jpg" alt="Behnaz Salehipourshirazi">
+        <h2>Behnaz Salehipourshirazi</h2>
+        <p>QA Engineer</p>
+    </div>
+
+</div>

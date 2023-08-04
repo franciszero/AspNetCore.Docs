@@ -9,6 +9,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ContactManager.Pages.Contacts
 {
+    /**
+     * Update the create page model:
+     *      Constructor to use the DI_BasePageModel base class.
+     *      OnPostAsync method to:
+     *          Add the user ID to the Contact model.
+     *          Call the authorization handler to verify the user has permission to create contacts.
+     */
     public class CreateModel : DI_BasePageModel
     {
         public CreateModel(

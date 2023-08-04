@@ -2,6 +2,7 @@
 
 namespace ContactManager.Authorization
 {
+    // This class contains the requirements the app supports:
     public static class ContactOperations
     {
         public static OperationAuthorizationRequirement Create =   

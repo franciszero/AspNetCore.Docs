@@ -11,6 +11,13 @@ namespace ContactManager.Pages.Contacts
 {
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
     #region snippet
+    /**
+     * Add an authorization handler to verify the user owns the contact. 
+     * Because resource authorization is being validated, the [Authorize] attribute is not enough. 
+     * The app doesn't have access to the resource when attributes are evaluated. 
+     * Resource-based authorization must be imperative. 
+     * Checks must be performed once the app has access to the resource, either by loading it in the page model or by loading it within the handler itself. You frequently access the resource by passing in the resource key.
+     */
     public class EditModel : DI_BasePageModel
     {
         public EditModel(
