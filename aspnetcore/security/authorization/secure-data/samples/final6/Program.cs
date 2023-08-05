@@ -59,14 +59,9 @@ builder.Services.AddAuthorization(options =>
  * They're singletons because they don't use EF and all the information needed is in the Context parameter of the HandleRequirementAsync method.
  */
 // Authorization handlers.
-builder.Services.AddScoped<IAuthorizationHandler,
-                      ContactIsOwnerAuthorizationHandler>();
-
-builder.Services.AddSingleton<IAuthorizationHandler,
-                      ContactAdministratorsAuthorizationHandler>();
-
-builder.Services.AddSingleton<IAuthorizationHandler,
-                      ContactManagerAuthorizationHandler>();
+builder.Services.AddScoped<IAuthorizationHandler, ContactIsOwnerAuthorizationHandler>();
+builder.Services.AddSingleton<IAuthorizationHandler, ContactAdministratorsAuthorizationHandler>();
+builder.Services.AddSingleton<IAuthorizationHandler, ContactManagerAuthorizationHandler>();
 
 var app = builder.Build();
 
@@ -74,7 +69,7 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var context = services.GetRequiredService<ApplicationDbContext>();
-    context.Database.Migrate();
+    context.Database.Migrate(); // make sure database(SSMS) is migrated with data model(./Migrations) before any data updates
 
     // option 1:
     //  requires using Microsoft.Extensions.Configuration;
@@ -83,7 +78,7 @@ using (var scope = app.Services.CreateScope())
     // option 2:
     //  appsettings.json: "SeedUserPW": "your_seed_user_password_here"
     var testUserPw = builder.Configuration.GetValue<string>("SeedUserPW");
-    await SeedData.Initialize(services, testUserPw);
+    await SeedData.Initialize(services, testUserPw);  // update data to the migrated latest table
 }
 #endregion
 
