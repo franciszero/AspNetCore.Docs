@@ -97,24 +97,10 @@ namespace ContactManager.Data
                 return;   // DB has been seeded
             }
 
+            // Add the administrator user ID and ContactStatus to the contacts.
+            // Make one of the contacts "Submitted" and one "Rejected".
+            // Add the user ID and status to all the contacts.
             context.Contact.AddRange(
-            #region snippet_Contact
-                new Contact
-                {
-                    Name = "Debra Garcia",
-                    Address = "1234 Main St",
-                    City = "Redmond",
-                    State = "WA",
-                    Zip = "10999",
-                    Email = "debra@example.com",
-                    Status = ContactStatus.Approved,
-                    OwnerID = adminID
-                },
-            #endregion
-            #endregion
-                // Add the administrator user ID and ContactStatus to the contacts.
-                // Make one of the contacts "Submitted" and one "Rejected".
-                // Add the user ID and status to all the contacts.
                 new Contact
                 {
                     Name = "Debra Garcia",
@@ -170,8 +156,10 @@ namespace ContactManager.Data
                     OwnerID = adminID
                 }
              );
+
             context.SaveChanges();
         }
     }
+    #endregion
 }
 #pragma warning restore CS8602 // Dereference of a possibly null reference.

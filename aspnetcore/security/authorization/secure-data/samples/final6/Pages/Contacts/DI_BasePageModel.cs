@@ -28,6 +28,6 @@ namespace ContactManager.Pages.Contacts
             Context = context;
             UserManager = userManager;
             AuthorizationService = authorizationService;
-        } 
+        }
     }
 }

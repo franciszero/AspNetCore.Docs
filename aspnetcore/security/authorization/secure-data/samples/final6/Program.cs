@@ -24,7 +24,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(
     options => options.SignIn.RequireConfirmedAccount = true)
     // Add Role services to Identity
     // Append AddRoles to add Role services:
-    .AddRoles<IdentityRole>() 
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 #endregion
 
@@ -41,7 +41,7 @@ builder.Services.AddAuthorization(options =>
      *      
      *      For requests served by endpoint routing, this includes any endpoint that doesn't specify an authorization attribute. 
      *      For requests served by other middleware after the authorization middleware, such as static files, this applies the policy to all requests.
-     */ 
+     */
     options.FallbackPolicy = new AuthorizationPolicyBuilder()
         // RequireAuthenticatedUser adds DenyAnonymousAuthorizationRequirement to the current instance, which enforces that the current user is authenticated.
         .RequireAuthenticatedUser()

@@ -16,7 +16,7 @@ namespace ContactManager.Authorization
     {
         UserManager<IdentityUser> _userManager;
 
-        public ContactIsOwnerAuthorizationHandler(UserManager<IdentityUser> 
+        public ContactIsOwnerAuthorizationHandler(UserManager<IdentityUser>
             userManager)
         {
             _userManager = userManager;
@@ -37,9 +37,9 @@ namespace ContactManager.Authorization
             // If not asking for CRUD permission, return.
 
             if (requirement.Name != Constants.CreateOperationName &&
-                requirement.Name != Constants.ReadOperationName   &&
+                requirement.Name != Constants.ReadOperationName &&
                 requirement.Name != Constants.UpdateOperationName &&
-                requirement.Name != Constants.DeleteOperationName )
+                requirement.Name != Constants.DeleteOperationName)
             {
                 // Return Task.CompletedTask when requirements aren't met.
                 return Task.CompletedTask;
