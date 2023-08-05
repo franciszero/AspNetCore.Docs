@@ -4,7 +4,107 @@
     ViewData["Title"] = "Home page";
 }
 
+<style>
+    body {
+        background-color: #68217A; /* Visual Studio color */
+        font-family: Century Gothic, Arial, sans-serif;
+        color: #ffffff; /* White font color */
+    }
+
+    .members-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .member-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px;
+        max-width: 200px; /* Set a maximum width for the member container */
+    }
+
+    .member-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%; /* Make the image round */
+        margin-bottom: 10px;
+    }
+
+    .member-info {
+        text-align: center;
+    }
+
+        .member-info h2 {
+            font-size: 18px; /* Font size for the members' names */
+        }
+
+        .member-info p {
+            color: #FFC0CB; /* Change the color of the role text to pink (#FFC0CB) */
+        }
+
+    /* Override link color */
+    a {
+        color: #999999; /* White link color */
+    }
+
+    h1.display-4 {
+        color: #ffffff; /* White link color */
+    }
+
+    /* Adjust the size and alignment of "OUR TEAM" title */
+    .team-title {
+        font-size: 20px; /* Change the font size of the title to 18px */
+        text-align: left; /* Align the title to the left */
+        margin-bottom: 20px; /* Add margin to create space between title and members */
+    }
+</style>
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <img src="/image/Geg.png" class="member-image"> <!-- Show the Geg.png image as the logo -->
+
+    <h1 class="display-4" style="color: #ffffff;">Welcome</h1>
+    <p>
+        Final Project BDAT 1001: <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.
+    </p>
+    <p>User Data Protected by Authorization</p>
+</div>
+
+<div class="team-title">OUR TEAM</div> <!-- Add the title "OUR TEAM" with class "team-title" -->
+
+<div class="members-container">
+    <div class="member-container">
+        <img src="/image/Member1.jpg" alt="Fangji Chen" class="member-image">
+        <div class="member-info">
+            <h2>Fangji Chen</h2>
+            <p>Web Developer</p>
+        </div>
+    </div>
+
+    <div class="member-container">
+        <img src="/image/Member2.jpg" alt="Oluwadamilare Shiji" class="member-image">
+        <div class="member-info">
+            <h2>Oluwadamilare Shiji</h2>
+            <p>Designer</p>
+        </div>
+    </div>
+
+    <div class="member-container">
+        <img src="/image/Member3.jpg" alt="Qin Ren" class="member-image">
+        <div class="member-info">
+            <h2>Qin Ren</h2>
+            <p>Project Manager</p>
+        </div>
+    </div>
+
+    <div class="member-container">
+        <img src="/image/Member4.jpg" alt="Behnaz Salehipourshirazi" class="member-image">
+        <div class="member-info">
+            <h2>Behnaz Salehipourshirazi</h2>
+            <p>QA Engineer</p>
+        </div>
+    </div>
+
+    <!-- Add more member containers here if needed -->
 </div>

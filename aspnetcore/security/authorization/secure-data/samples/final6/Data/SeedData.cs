@@ -8,7 +8,6 @@ namespace ContactManager.Data
 {
     public static class SeedData
     {
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
         #region snippet_Initialize
         public static async Task Initialize(IServiceProvider serviceProvider, string testUserPw)
         {
@@ -30,8 +29,7 @@ namespace ContactManager.Data
             }
         }
 
-        private static async Task<string> EnsureUser(IServiceProvider serviceProvider,
-                                                    string testUserPw, string UserName)
+        private static async Task<string> EnsureUser(IServiceProvider serviceProvider, string testUserPw, string UserName)
         {
             var userManager = serviceProvider.GetService<UserManager<IdentityUser>>();
 
@@ -54,8 +52,7 @@ namespace ContactManager.Data
             return user.Id;
         }
 
-        private static async Task<IdentityResult> EnsureRole(IServiceProvider serviceProvider,
-                                                                      string uid, string role)
+        private static async Task<IdentityResult> EnsureRole(IServiceProvider serviceProvider, string uid, string role)
         {
             var roleManager = serviceProvider.GetService<RoleManager<IdentityRole>>();
 
@@ -89,6 +86,7 @@ namespace ContactManager.Data
             return IR;
         }
         #endregion
+
         #region snippet1
         public static void SeedDB(ApplicationDbContext context, string adminID)
         {
@@ -162,4 +160,3 @@ namespace ContactManager.Data
     }
     #endregion
 }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
