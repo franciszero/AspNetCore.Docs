@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContactManager.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230801044141_initial")]
+    [Migration("20230805024642_initial")]
     partial class initial
     {
         /// <inheritdoc />

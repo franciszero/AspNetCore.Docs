@@ -12,12 +12,11 @@ namespace ContactManager.Data
         #region snippet_Initialize
         public static async Task Initialize(IServiceProvider serviceProvider, string testUserPw)
         {
-            using (var context = new ApplicationDbContext(
-                serviceProvider.GetRequiredService<DbContextOptions<ApplicationDbContext>>()))
+            using (var context = new ApplicationDbContext(serviceProvider.GetRequiredService<DbContextOptions<ApplicationDbContext>>()))
             {
                 // For sample purposes seed both with the same password.
                 // Password is set with the following:
-                // dotnet user-secrets set SeedUserPW <pw>
+                //      dotnet user-secrets set SeedUserPW <pw>
                 // The admin user can do anything
 
                 var adminID = await EnsureUser(serviceProvider, testUserPw, "admin@contoso.com");
@@ -98,8 +97,10 @@ namespace ContactManager.Data
                 return;   // DB has been seeded
             }
 
+            // Add the administrator user ID and ContactStatus to the contacts.
+            // Make one of the contacts "Submitted" and one "Rejected".
+            // Add the user ID and status to all the contacts.
             context.Contact.AddRange(
-            #region snippet_Contact
                 new Contact
                 {
                     Name = "Debra Garcia",
@@ -111,38 +112,36 @@ namespace ContactManager.Data
                     Status = ContactStatus.Approved,
                     OwnerID = adminID
                 },
-            #endregion
-            #endregion
                 new Contact
                 {
-                    Name = "Thorsten Weinrich",
-                    Address = "5678 1st Ave W",
-                    City = "Redmond",
-                    State = "WA",
-                    Zip = "10999",
-                    Email = "thorsten@example.com",
+                    Name = "Fangji Chen",
+                    Address = "101 Georgian Dr",
+                    City = "Barrie1",
+                    State = "ON1",
+                    Zip = "1A2B3C",
+                    Email = "fangjichen@example.com",
                     Status = ContactStatus.Submitted,
                     OwnerID = adminID
                 },
                 new Contact
                 {
-                    Name = "Yuhong Li",
-                    Address = "9012 State st",
-                    City = "Redmond",
-                    State = "WA",
-                    Zip = "10999",
-                    Email = "yuhong@example.com",
+                    Name = "Qin Ren",
+                    Address = "102 Georgian Dr",
+                    City = "Barrie2",
+                    State = "ON2",
+                    Zip = "2A3B4C",
+                    Email = "qinren@example.com",
                     Status = ContactStatus.Rejected,
                     OwnerID = adminID
                 },
                 new Contact
                 {
-                    Name = "Jon Orton",
-                    Address = "3456 Maple St",
-                    City = "Redmond",
-                    State = "WA",
-                    Zip = "10999",
-                    Email = "jon@example.com",
+                    Name = "Dami",
+                    Address = "103 Georgian Dr",
+                    City = "Barrie3",
+                    State = "ON3",
+                    Zip = "3A4B5C",
+                    Email = "dami@example.com",
                     Status = ContactStatus.Submitted,
                     OwnerID = adminID
                 },
@@ -157,8 +156,10 @@ namespace ContactManager.Data
                     OwnerID = adminID
                 }
              );
+
             context.SaveChanges();
         }
     }
+    #endregion
 }
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
