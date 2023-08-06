@@ -4,8 +4,10 @@
 
 namespace ContactManager.Data.Migrations
 {
+    /// <inheritdoc />
     public partial class userID_Status : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
@@ -22,6 +24,7 @@ namespace ContactManager.Data.Migrations
                 defaultValue: 0);
         }
 
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
