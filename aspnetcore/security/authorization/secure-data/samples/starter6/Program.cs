@@ -1,3 +1,5 @@
+// starter6
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ContactManager.Data;

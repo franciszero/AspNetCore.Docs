@@ -21,6 +21,7 @@ namespace ContactManager.Pages.Contacts
 
         public IList<Contact> Contact { get; set; }
 
+        // Update the OnGetAsync method so only approved contacts are shown to general users:
         public async Task OnGetAsync()
         {
             var contacts = from c in Context.Contact

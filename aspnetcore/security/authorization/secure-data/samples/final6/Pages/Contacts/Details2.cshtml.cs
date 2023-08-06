@@ -10,16 +10,19 @@ namespace ContactManager.Pages.Contacts
 {
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
     #region snippet
+    /**
+     * In this code:
+     *      When the user is not authenticated, a ChallengeResult is returned. 
+     *      When a ChallengeResult is returned, the user is redirected to the sign-in page.
+     *      
+     *      When the user is authenticated, but not authorized, a ForbidResult is returned. 
+     *      When a ForbidResult is returned, the user is redirected to the access denied page.
+     */
     [AllowAnonymous]
     public class Details2Model : DI_BasePageModel
     {
-        public Details2Model(
-            ApplicationDbContext context,
-            IAuthorizationService authorizationService,
-            UserManager<IdentityUser> userManager)
-            : base(context, authorizationService, userManager)
-        {
-        }
+        public Details2Model(ApplicationDbContext context, IAuthorizationService authorizationService, UserManager<IdentityUser> userManager) :
+            base(context, authorizationService, userManager) { }
 
         public Contact Contact { get; set; }
 

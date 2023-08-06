@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Identity;
 
 namespace ContactManager.Authorization
 {
+    // Create a ContactManagerAuthorizationHandler class in the Authorization folder.
+    // The ContactManagerAuthorizationHandler verifies the user acting on the resource is a manager.
+    // Only managers can approve or reject content changes (new or changed).
     public class ContactManagerAuthorizationHandler :
         AuthorizationHandler<OperationAuthorizationRequirement, Contact>
     {
