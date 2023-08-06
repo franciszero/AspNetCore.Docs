@@ -21,8 +21,7 @@ namespace ContactManager.Pages.Contacts
     [AllowAnonymous]
     public class Details2Model : DI_BasePageModel
     {
-        public Details2Model(ApplicationDbContext context, IAuthorizationService authorizationService, UserManager<IdentityUser> userManager) :
-            base(context, authorizationService, userManager) { }
+        public Details2Model(ApplicationDbContext context, IAuthorizationService authorizationService, UserManager<IdentityUser> userManager) : base(context, authorizationService, userManager) { }
 
         public Contact Contact { get; set; }
 

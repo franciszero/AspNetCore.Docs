@@ -42,9 +42,7 @@ namespace ContactManager.Pages.Contacts
 
             Contact = contact;
 
-            var isAuthorized = await AuthorizationService.AuthorizeAsync(
-                                                      User, Contact,
-                                                      ContactOperations.Update);
+            var isAuthorized = await AuthorizationService.AuthorizeAsync(User, Contact, ContactOperations.Update);
             if (!isAuthorized.Succeeded)
             {
                 return Forbid();
@@ -88,9 +86,7 @@ namespace ContactManager.Pages.Contacts
                 // and the user cannot approve,
                 // set the status back to submitted so the update can be
                 // checked and approved.
-                var canApprove = await AuthorizationService.AuthorizeAsync(User,
-                                        Contact,
-                                        ContactOperations.Approve);
+                var canApprove = await AuthorizationService.AuthorizeAsync(User, Contact, ContactOperations.Approve);
 
                 if (!canApprove.Succeeded)
                 {

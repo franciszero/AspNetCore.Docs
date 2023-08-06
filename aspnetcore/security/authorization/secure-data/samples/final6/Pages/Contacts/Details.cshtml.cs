@@ -57,12 +57,8 @@ namespace ContactManager.Pages.Contacts
                 return NotFound();
             }
 
-            var contactOperation = (status == ContactStatus.Approved)
-                                                       ? ContactOperations.Approve
-                                                       : ContactOperations.Reject;
-
-            var isAuthorized = await AuthorizationService.AuthorizeAsync(User, contact,
-                                        contactOperation);
+            var contactOperation = (status == ContactStatus.Approved) ? ContactOperations.Approve : ContactOperations.Reject;
+            var isAuthorized = await AuthorizationService.AuthorizeAsync(User, contact, contactOperation);
             if (!isAuthorized.Succeeded)
             {
                 return Forbid();

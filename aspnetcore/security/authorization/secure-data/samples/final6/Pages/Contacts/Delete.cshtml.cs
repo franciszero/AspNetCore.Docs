@@ -37,9 +37,7 @@ namespace ContactManager.Pages.Contacts
             }
             Contact = _contact;
 
-            var isAuthorized = await AuthorizationService.AuthorizeAsync(
-                                                     User, Contact,
-                                                     ContactOperations.Delete);
+            var isAuthorized = await AuthorizationService.AuthorizeAsync(User, Contact, ContactOperations.Delete);
             if (!isAuthorized.Succeeded)
             {
                 return Forbid();

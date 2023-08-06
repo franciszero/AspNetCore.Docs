@@ -43,9 +43,7 @@ namespace ContactManager.Pages.Contacts
 
             Contact.OwnerID = UserManager.GetUserId(User);
 
-            var isAuthorized = await AuthorizationService.AuthorizeAsync(
-                                                        User, Contact,
-                                                        ContactOperations.Create);
+            var isAuthorized = await AuthorizationService.AuthorizeAsync(User, Contact, ContactOperations.Create);
             if (!isAuthorized.Succeeded)
             {
                 return Forbid();
