@@ -22,11 +22,12 @@ namespace ContactManager.Authorization
             _userManager = userManager;
         }
 
-        // The ContactIsOwnerAuthorizationHandler calls context.Succeed if the current authenticated user is the contact owner. Authorization handlers generally:
-        protected override Task
-            HandleRequirementAsync(AuthorizationHandlerContext context,
-                                   OperationAuthorizationRequirement requirement,
-                                   Contact resource)
+        // The ContactIsOwnerAuthorizationHandler calls context.Succeed
+        // if the current authenticated user is the contact owner.
+        protected override Task HandleRequirementAsync(
+            AuthorizationHandlerContext context,
+            OperationAuthorizationRequirement requirement,
+            Contact resource)
         {
             if (context.User == null || resource == null)
             {
@@ -48,7 +49,7 @@ namespace ContactManager.Authorization
             if (resource.OwnerID == _userManager.GetUserId(context.User))
             {
                 // Call context.Succeed when the requirements are met.
-                context.Succeed(requirement);
+                context.Succeed(requirement); // set requirement into context
             }
 
             // Return Task.CompletedTask when requirements aren't met.
